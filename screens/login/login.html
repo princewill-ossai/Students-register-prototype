@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login – Attendance App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <p id="status" class="absolute bg-green-400 text-white rounded-lg font-bold px-10 top-[5rem]">Success</p>
+
+  <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-sm">
+    <h1 class="text-2xl font-bold text-center mb-6">Teacher Login</h1>
+    <form>
+      <label class="block mb-2 font-medium">Email</label>
+      <input id="email" type="email" placeholder="Email" class="w-full border rounded px-3 py-2 mb-4" autocomplete="email">
+
+      <label class="block mb-2 font-medium">Password</label>
+      <input id="password" type="password" placeholder="Password" class="w-full border rounded px-3 py-2 mb-6" autocomplete="current-password">
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
+    </form>
+    <p class="text-center text-sm mt-4">
+      <a href="../register/register.html" class="text-blue-500 hover:underline">Register a Student</a>
+    </p>
+  </div>
+
+  <script src="./login.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Student – Attendance App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center font-bold justify-center h-screen">
+  <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+    <h1 class="text-2xl font-bold text-center mb-6">Register Student</h1>
+    <form>
+      <label class="block mb-2 font-medium">Student Name</label>
+      <input id="fname" type="text" placeholder="Full Name" class="w-full border rounded px-3 py-2 mb-4">
+
+      <label class="block mb-2 font-medium">Student Email</label>
+      <input id="email" type="email" placeholder="Email" class="w-full border rounded px-3 py-2 mb-4" autocomplete="email">
+
+      <label class="block mb-2 font-medium">Upload Photo</label>
+      <input id="image" type="file" accept="image/*" class="w-full border rounded px-3 py-2 mb-6">
+
+      <button id="btn" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Register</button>
+    </form>
+    <p class="text-center text-sm mt-4">
+      <a href="../login/login.html" class="text-blue-500 hover:underline">Back to Login</a>
+    </p>
+  </div>
+
+  <script src="../dashboard/dashboard.js"></script>
+</body>
+</html>
