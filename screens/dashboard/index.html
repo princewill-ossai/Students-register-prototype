@@ -1,37 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard – Attendance App</title>
+  <link rel="stylesheet" href="../../css/styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
 </head>
-<body class="bg-gray-100 min-h-screen">
-  <nav class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold">Teacher Dashboard</h1>
-    <a href="../login/index.html" class="text-red-600 hover:underline">Logout</a>
-  </nav>
 
-  <div class="p-6">
-    <h2 class="text-2xl font-semibold mb-4">Students Present</h2>
-    <div class="overflow-x-auto">
-      <table class="table-auto border-collapse w-full bg-white rounded shadow">
-        <thead class="bg-gray-200">
-          <tr>
-            <th class="px-4 py-2 border">Photo</th>
-            <th class="px-4 py-2 border">Name</th>
-            <th class="px-4 py-2 border">Email</th>
-            <th class="px-4 py-2 border">Status</th>
-          </tr>
-        </thead>
-        <tbody id="table-body">
-          <!-- Example row -->
-          
-        </tbody>
-      </table>
+<body>
+  <div class="bg-gray-100 dark:bg-gray-800 dark:text-white min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-900 shadow p-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+      <h1 class="text-xl font-bold text-center sm:text-left">Teacher Dashboard</h1>
+      <div class="flex items-center gap-4 justify-center sm:justify-end">
+        <a href="../index.html" class="text-red-600 hover:underline text-center sm:text-righst">Logout</a>
+        <div>
+          <label class="switch" for="toggle-theme">
+            <input type="checkbox" id="toggle-theme">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="p-4 sm:p-6">
+      <h2 class="text-2xl font-semibold mb-4 text-center sm:text-left">Students Present</h2>
+
+      <!-- Table Container (scrollable on small screens) -->
+      <div class="overflow-x-auto">
+        <table class="table-auto border-collapse w-full bg-white rounded shadow min-w-[600px]">
+          <thead class="bg-gray-200 dark:bg-gray-700">
+            <tr>
+              <th class="px-4 py-2 dark:border-gray-500 border text-left">Photo</th>
+              <th class="px-4 py-2 dark:border-gray-500 border text-left">Name</th>
+              <th class="px-4 py-2 dark:border-gray-500 border text-left">Email</th>
+              <th class="px-4 py-2 dark:border-gray-500 border text-left">Status</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Example row -->
+
+          </tbody>
+        </table>
+      </div>
     </div>
+
   </div>
 
   <script src="./dashboard.js"></script>
+  <script src="../../globalTheme/index.js"></script>
 </body>
+
 </html>

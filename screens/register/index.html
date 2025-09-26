@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register Student – Attendance App</title>
+  <link rel="stylesheet" href="../../css/styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
 </head>
-<body class="bg-gray-100 flex items-center font-bold justify-center h-screen">
-  <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-    <h1 class="text-2xl font-bold text-center mb-6">Register Student</h1>
-    <form>
-      <label class="block mb-2 font-medium">Student Name</label>
-      <input id="fname" type="text" placeholder="Full Name" class="w-full border rounded px-3 py-2 mb-4">
 
-      <label class="block mb-2 font-medium">Student Email</label>
-      <input id="email" type="email" placeholder="Email" class="w-full border rounded px-3 py-2 mb-4" autocomplete="email">
+<body>
+  <div class="bg-gray-100 dark:bg-gray-900 flex items-center font-bold justify-center h-screen">
+    <div>
+      <label class="switch absolute top-[5px] right-[5px]" for="toggle-theme">
+        <input type="checkbox" id="toggle-theme">
+        <span class="slider round"></span>
+      </label>
+    </div>
 
-      <label class="block mb-2 font-medium">Upload Photo</label>
-      <input id="image" type="file" accept="image/*" class="w-full border rounded px-3 py-2 mb-6">
+    <div class="bg-white dark:bg-gray-700 dark:text-white shadow-lg rounded-lg p-8 w-full max-w-md">
+      <h1 class="text-2xl font-bold text-center mb-6">Register Student</h1>
+      <form>
+        <label class="block mb-2 font-medium">Student Name</label>
+        <input id="fname" type="text" placeholder="Full Name" class="w-full border dark:bg-gray-600 dark:border-gray-600 rounded px-3 py-2 mb-4">
 
-      <button id="btn" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Register</button>
-    </form>
-    <p class="text-center text-sm mt-4">
-      <a href="../login/index.html" class="text-blue-500 hover:underline">Back to Login</a>
-    </p>
+        <label class="block mb-2 font-medium">Student Email</label>
+        <input id="email" type="email" placeholder="Email" class="w-full dark:bg-gray-600 border dark:border-gray-600 rounded px-3 py-2 mb-4"
+          autocomplete="email">
+
+        <label class="block mb-2 font-medium">Upload Photo</label>
+        <input id="photo" type="file" accept="image/*" class="w-full dark:bg-gray-600 border dark:border-gray-600 rounded px-3 py-2 mb-6">
+
+        <button id="btn" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Register</button>
+      </form>
+      <p class="text-center text-sm mt-4">
+        <a href="../login/index.html" class="text-blue-500 hover:underline">Back to Login</a>
+      </p>
+    </div>
   </div>
 
   <script src="../dashboard/dashboard.js"></script>
+  <script src="../../globalTheme/index.js"></script>
 </body>
+
 </html>

@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login – Attendance App</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../css/styles.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+<body>
+  <div class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center h-screen">
+    <div>
+      <label class="switch absolute top-[5px] right-[5px]" for="toggle-theme">
+        <input type="checkbox" id="toggle-theme">
+        <span class="slider round"></span>
+      </label>
+    </div>
 
     <p id="status" class="absolute bg-green-400 text-white rounded-lg font-bold px-10 top-[5rem]">Success</p>
 
-  <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-sm">
-    <h1 class="text-2xl font-bold text-center mb-6">Teacher Login</h1>
-    <form>
-      <label class="block mb-2 font-medium">Email</label>
-      <input id="email" type="email" placeholder="Email" class="w-full border rounded px-3 py-2 mb-4" autocomplete="email">
+    <div class="bg-white dark:bg-gray-700 dark:text-white shadow-lg rounded-lg p-8 w-full max-w-sm">
+      <h1 class="text-2xl font-bold text-center mb-6">Teacher Login</h1>
+      <form>
+        <label class="block mb-2 font-medium">Email</label>
+        <input id="email" type="email" placeholder="Email" class="w-full dark:border-gray-600 border rounded px-3 py-2 mb-4 dark:bg-gray-600"
+          autocomplete="email">
 
-      <label class="block mb-2 font-medium">Password</label>
-      <input id="password" type="password" placeholder="Password" class="w-full border rounded px-3 py-2 mb-6" autocomplete="current-password">
+        <label class="block mb-2 font-medium">Password</label>
+        <input id="password" type="password" placeholder="Password"
+          class="w-full border dark:border-gray-600 rounded px-3 py-2 mb-6 dark:bg-gray-600" autocomplete="current-password">
 
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
-    </form>
-    <p class="text-center text-sm mt-4">
-      <a href="../register/index.html" class="text-blue-500 hover:underline">Register a Student</a>
-    </p>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
+      </form>
+      <p class="text-center text-sm mt-4">
+        <a href="../register/index.html" class="text-blue-500 hover:underline">Register a Student</a>
+      </p>
+    </div>
+
   </div>
 
   <script src="./login.js"></script>
+  <script src="../../globalTheme/index.js"></script>
 </body>
+
 </html>

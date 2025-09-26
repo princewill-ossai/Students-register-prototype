@@ -1,3 +1,59 @@
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+
+    input {
+
+        &:checked+.slider {
+            background-color: #476173;
+
+            &:before {
+                transform: translateX(20px);
+                background-color: transparent;
+                border-radius: 50%;
+                border-top-color: transparent;
+                border-left-color: transparent;
+                border-right-color: transparent;
+                box-shadow: inset -5px -3px 0 #d8e9ef;
+            }
+        }
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #7bb9f5;
+        transition: .4s;
+        border-radius: 20px;
+
+        &:before {
+            position: absolute;
+            content: '';
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: yellow;
+            transition: .4s;
+            border-radius: 50%;
+        }
+    }
+}
+
+
+
+
+
+
+
+/* Normal styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +61,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .hero-section {
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/homeview.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/homeview.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
