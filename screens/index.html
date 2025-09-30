@@ -2,86 +2,99 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class'
-        }
-    </script>
-    <title>Students register app</title>
-    <link rel="stylesheet" href="../css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <title>Students register app</title>
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body>
+<body class="bg-gray-100 dark:bg-gray-900">
+    
+    <!-- HEADER -->
+  <header
+    class="flex flex-wrap justify-between items-center p-4 bg-white dark:bg-gray-800 shadow-lg text-black dark:text-white">
+    <!-- Logo -->
+    <div class="flex items-center mb-3 sm:mb-0">
+      <img src="../assets/logo.jpeg" alt="Logo" class="h-10 rounded-full mr-2" />
+      <h2 class="font-['Bungee',sans-serif] font-[500] text-lg sm:text-xl">FaceAttendance</h2>
+    </div>
 
-    <header
-        class="flex justify-between font-bold items-center p-4 bg-white dark:bg-gray-800 shadow-lg text-black dark:text-white">
-        <div class="flex items-center">
-            <img src="../assets/logo.jpeg" alt="Logo" class="h-10 rounded-full mr-2" />
-            <h2 class="font-['Bungee', sans-serif] font-[500]">FaceAttendance</h2>
-        </div>
-        <nav>
-            <ul class="flex space-x-4">
-                <li><a class="bg-blue-600 dark:bg-blue-700 font-bold px-3 py-1 rounded-[5px] text-white hover:bg-blue-700 dark:hover:bg-blue-600"
-                        href="../screens/login/index.html">Teacher login</a></li>
-                <li><a class="bg-green-600 dark:bg-green-700 font-bold px-3 py-1 rounded-[5px] text-white hover:bg-green-700 dark:hover:bg-green-600"
-                        href="./register/index.html">Register student</a>
-                </li>
-            </ul>
-        </nav>
+    <!-- Navigation -->
+    <nav class="w-full sm:w-auto">
+      <ul class="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 text-center">
+        <li>
+          <a class="bg-blue-600 dark:bg-blue-700 font-bold px-3 py-1 rounded-[5px] text-white 
+                     hover:bg-blue-700 dark:hover:bg-blue-600 block"
+            href="../screens/login/index.html">Teacher login</a>
+        </li>
+        <li>
+          <a class="bg-green-600 dark:bg-green-700 font-bold px-3 py-1 rounded-[5px] text-white 
+                     hover:bg-green-700 dark:hover:bg-green-600 block"
+            href="./register/index.html">Register student</a>
+        </li>
+      </ul>
+    </nav>
 
-        <div>
-            <label class="switch" for="toggle-theme">
-                <input type="checkbox" id="toggle-theme">
-                <span class="slider round"></span>
-            </label>
-        </div>
-    </header>
+    <!-- Theme Toggle -->
+    <div class="mt-3 sm:mt-0">
+      <label class="switch" for="toggle-theme">
+        <input type="checkbox" id="toggle-theme">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </header>
 
-    <main class="flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900">
-        <div class="hero-section w-full">
-            <div class="hero-logo"><img src="../assets/logo.jpeg" alt=""></div>
-            <h1 class="text-4xl font-bold mb-6 text-white">Welcome to FaceAttendance</h1>
-            <p class="text-lg mb-8 text-white">Easily manage student attendance with our face recognition
-                technology. Register students and track attendance seamlessly.</p>
+  <!-- MAIN CONTENT -->
+  <main class="flex flex-col items-center dark:bg-gray-800 justify-center py-10">
+    <div class="hero-section w-full text-center">
+      <div class="hero-logo flex justify-center mb-4">
+        <img src="../assets/logo.jpeg" alt="App Logo" class="h-20 sm:h-28 rounded-full" />
+      </div>
+      <h1 class="text-2xl sm:text-4xl font-bold mb-4 text-white">Welcome to FaceAttendance</h1>
+      <p class="text-base sm:text-lg mb-8 text-gray-100 max-w-2xl mx-auto">
+        Easily manage student attendance with our face recognition technology. Register students and track attendance seamlessly.
+      </p>
+    </div>
 
-        </div>
-        <div
-            class="bg-gray-100 dark:bg-gray-900 font-bold p-6 rounded-lg max-w-4xl text-center text-gray-900 dark:text-white">
-            <p>Our system eliminates manual roll calls. Students register once with their name, email, and photo. When
-                they arrive at class, they simply log in and our app automatically verifies their identity using facial
-                recognition. Attendance is instantly recorded for teachers to review.</p>
-        </div>
-    </main>
+    <!-- Info Box -->
+    <div
+      class="bg-white dark:bg-gray-800 font-bold p-6 rounded-lg w-full text-center text-gray-900 dark:text-white shadow-md">
+      <p class="text-sm sm:text-base leading-relaxed">
+        Our system eliminates manual roll calls. Students register once with their name, email, and photo. When they arrive at class, they simply log in and our app automatically verifies their identity using facial recognition. Attendance is instantly recorded for teachers to review.
+      </p>
+    </div>
+  </main>
 
-    <footer class="bg-gray-200 dark:bg-gray-800 pt-10">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-900 dark:text-white">
-            <a href="index.html" class="text-xl font-bold text-blue-600 dark:text-blue-400">FaceAttendance</a>
+  <!-- FOOTER -->
+  <footer class="bg-gray-200 dark:bg-gray-700 pt-10 mt-10">
+    <div class="container mx-auto px-4 sm:px-6 py-8 text-center text-gray-900 dark:text-white">
+      <a href="index.html" class="text-lg sm:text-xl font-bold text-blue-600 dark:text-blue-400">FaceAttendance</a>
 
-            <div class="flex justify-center space-x-6 mt-4">
-                <a href="index.html"
-                    class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
-                <a href="./register/index.html"
-                    class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Register
-                    Student</a>
-                <a href="./register/index.html"
-                    class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Teacher
-                    Login</a>
-            </div>
+      <!-- Footer Links -->
+      <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-6 mt-4">
+        <a href="index.html"
+          class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+        <a href="./register/index.html"
+          class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Register Student</a>
+        <a href="./register/index.html"
+          class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">Teacher Login</a>
+      </div>
 
-            <hr class="my-6 border-gray-300 dark:border-gray-600">
+      <hr class="my-6 border-gray-300 dark:border-gray-600">
 
-            <p class="text-gray-500 dark:text-gray-400 text-sm">
-                © 2025 FaceAttendance. All rights reserved.
-            </p>
-        </div>
-    </footer>
+      <p class="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+        © 2025 FaceAttendance. All rights reserved.
+      </p>
+    </div>
+  </footer>
 
-    <script src="../globalTheme/index.js">
-        
-    </script>
+  <script src="../globalTheme/index.js"></script>
 </body>
 
 </html>
