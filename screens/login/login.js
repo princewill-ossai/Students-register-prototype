@@ -37,6 +37,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
     }
 
     setTimeout(() => {
-        window.location.href = '../dashboard/index.html';
+        window.location.href = '../dashboard/newSession.html';
     }, 1000)
 });
+
