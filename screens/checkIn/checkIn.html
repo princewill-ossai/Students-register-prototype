@@ -2,20 +2,15 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register Student – Attendance App</title>
-  <link rel="stylesheet" href="../../css/styles.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class'
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
 </head>
 
 <body>
-  <div class="bg-gray-100 dark:bg-[#020217] flex items-center font-bold justify-center h-screen">
+
+    <div class="bg-gray-100 dark:bg-[#020217] flex items-center font-bold justify-center h-screen">
     <div>
       <label class="switch absolute top-[5px] right-[5px]" for="toggle-theme">
         <input type="checkbox" id="toggle-theme">
@@ -25,7 +20,7 @@
 
     <div class="bg-white relative dark:bg-[#020221] text-gray-200 shadow-lg rounded-lg p-8 w-full max-w-md">
       <button class="bg-gray-800 absolute right-5 px-4 py-2 rounded-lg">&lAarr; Dashboard</button>
-      <h1 class="text-2xl pt-16 font-bold mb-6">Add new student</h1>
+      <h1 class="text-2xl pt-16 font-bold mb-6">Check in</h1>
       <form>
         <label class="block mb-2 font-medium">Registration number</label>
         <input id="regNumber" type="text" class="w-full border dark:bg-[transparent] dark:border-gray-900 rounded px-3 py-2 mb-4">
@@ -36,16 +31,7 @@
         <label class="block mb-2 font-medium">Last Name</label>
         <input id="lastName" type="text" class="w-full border dark:bg-[transparent] dark:border-gray-900 rounded px-3 py-2 mb-4">
 
-        <label class="block mb-2 font-medium">Department</label>
-        <input id="department" type="text" class="w-full dark:bg-[transparent] border dark:border-gray-900 rounded px-3 py-2 mb-4">
-        <label class="block mb-2 font-medium">Student Email</label>
-        <input id="studentEmail" type="email" class="w-full dark:bg-[transparent] border dark:border-gray-900 rounded px-3 py-2 mb-4"
-          autocomplete="email">
-
-        <label class="block mb-2 font-medium">Upload Photo</label>
-        <input id="photo" type="file" accept="image/*" class="w-full dark:bg-[transparent] border dark:border-gray-900 rounded px-3 py-2 mb-6">
-
-        <button id="btn" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Register</button>
+        <button id="btn" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Check in</button>
       </form>
       <p class="text-center text-sm mt-4">
         <a href="../attebdance-record/attendanceResord.html" class="text-blue-500 hover:underline">Back to Dashboard</a>
@@ -53,8 +39,7 @@
     </div>
   </div>
 
-  <script src="./register.js"></script>
-  <script src="../../globalTheme/index.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

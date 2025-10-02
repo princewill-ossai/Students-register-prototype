@@ -1,67 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard – Attendance App</title>
-  <link rel="stylesheet" href="../../css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Attendance Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class'
-    }
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<body class="bg-[#020221] text-white font-sans flex flex-col md:flex-row">
+  <!-- Sidebar -->
+  <div id="sidebar-root" class="md:w-72 w-full"></div>
 
-<body>
-  <div class="bg-gray-100 dark:bg-gray-800 dark:text-white min-h-screen">
-    <!-- Navbar -->
-    <nav
-      class="bg-white dark:bg-gray-900 shadow p-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-      <h1 class="text-xl font-bold text-center sm:text-left">Teacher Dashboard</h1>
-      <div class="flex items-center gap-4 justify-center sm:justify-end">
-        <a href="../index.html" class="text-red-600 hover:underline text-center sm:text-righst">Logout</a>
+  <!-- Main Content -->
+  <div class="flex-1 min-h-screen flex flex-col">
+    
+    <!-- Topbar -->
+    <header class="flex flex-wrap items-center justify-between gap-4 p-6">
+      <h1 class="text-xl font-semibold">✅ Smart Attendance</h1>
+      <div class="flex items-center space-x-6">
         <div>
-          <label class="switch" for="toggle-theme">
-            <input type="checkbox" id="toggle-theme">
-            <span class="slider round"></span>
-          </label>
+          <p id="currentDate" class="text-gray-400 text-sm"></p>
+          <p id="currentTime" class="text-lg font-bold"></p>
         </div>
-
+        <div class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center">
+          <span class="material-icons">person</span>
+        </div>
       </div>
-    </nav>
+    </header>
 
-    <!-- Main Content -->
-    <div class="p-4 sm:p-6">
-      <h2 class="text-2xl font-semibold mb-4 text-center sm:text-left">Students Present</h2>
+    <!-- Dashboard Section -->
+    <section class="px-6">
+      <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
 
-      <!-- Table Container (scrollable on small screens) -->
-      <div class="overflow-x-auto">
-        <h2 id="session-date" class="text-xl font-bold mb-4"></h2>
-        <table class="table-auto border-collapse w-full bg-white rounded shadow min-w-[600px]">
-          <thead class="bg-gray-200 dark:bg-gray-700">
-            <tr>
-              <th class="px-4 py-2 dark:border-gray-500 border text-left">Photo</th>
-              <th class="px-4 py-2 dark:border-gray-500 border text-left">Name</th>
-              <th class="px-4 py-2 dark:border-gray-500 border text-left">Email</th>
-              <th class="px-4 py-2 dark:border-gray-500 border text-left">Status</th>
-            </tr>
-          </thead>
-          <tbody id="table-body">
-            <!-- Example row -->
-
-          </tbody>
-        </table>
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div class="bg-[#0707418c] p-6 rounded-xl shadow-md">
+          <p class="text-3xl font-bold" id="totalStudents">250</p>
+          <p class="text-gray-400">Students</p>
+        </div>
+        <div class="bg-[#0707418c] p-6 rounded-xl shadow-md">
+          <p class="text-3xl font-bold text-green-400" id="presentToday">197</p>
+          <p class="text-gray-400">Present Today</p>
+        </div>
+        <div class="bg-[#0707418c] p-6 rounded-xl shadow-md">
+          <p class="text-3xl font-bold text-blue-400" id="attendancePercent">78.8%</p>
+          <p class="text-gray-400">Attendance</p>
+        </div>
+        <div class="bg-[#0707418c] p-6 rounded-xl shadow-md">
+          <p class="text-3xl font-bold text-purple-400" id="classesToday">5</p>
+          <p class="text-gray-400">Classes Today</p>
+        </div>
       </div>
-    </div>
 
+      <!-- Attendance Chart -->
+      <div class="bg-[#0707418c] p-6 rounded-xl shadow-md mb-10 overflow-x-auto">
+        <h3 class="text-lg font-semibold mb-4">Attendance</h3>
+        <canvas id="attendanceChart" height="100"></canvas>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="bg-[#0707418c] p-6 rounded-xl shadow-md">
+        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <a href="newSession.html" class="block bg-blue-600 hover:bg-blue-700 text-center py-2 rounded-lg">Start Session</a>
+          <a href="records.html" class="block bg-green-600 hover:bg-green-700 text-center py-2 rounded-lg">View Records</a>
+          <a href="../register/index.html" class="block bg-purple-600 hover:bg-purple-700 text-center py-2 rounded-lg">Add Student</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+      // Date + Time
+      function updateDateTime() {
+        const now = new Date();
+        document.getElementById("currentDate").textContent = now.toLocaleDateString("en-US", {
+          weekday: "short", year: "numeric", month: "short", day: "numeric"
+        });
+        document.getElementById("currentTime").textContent = now.toLocaleTimeString();
+      }
+      setInterval(updateDateTime, 1000);
+      updateDateTime();
+
+      // Chart.js Attendance Graph
+      const ctx = document.getElementById('attendanceChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['20 Apr', '21 Apr', '22 Apr', '23 Apr', '24 Apr', '25 Apr', '26 Apr'],
+          datasets: [{
+            label: 'Attendance %',
+            data: [10, 40, 60, 45, 30, 35, 20],
+            borderColor: 'rgb(59,130,246)',
+            fill: false,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, max: 100 }
+          }
+        }
+      });
+    </script>
   </div>
-
-  <script src="./dashboard.js"></script>
-  <script src="../../globalTheme/index.js"></script>
+  <script src="../sidebar/sidebar.js"></script>
 </body>
-
-
-
 </html>

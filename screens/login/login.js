@@ -37,7 +37,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
     }
 
     setTimeout(() => {
-        window.location.href = '../dashboard/newSession.html';
+        window.location.href = '../attebdance-record/attendanceResord.html';
     }, 1000)
 });
 

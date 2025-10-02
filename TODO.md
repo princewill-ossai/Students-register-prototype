@@ -1,9 +1,6 @@
-# TODO: Make Dark Theme Toggle Work
+# TODO for Registration Form Enhancement
 
-- [x] Configure Tailwind for class-based dark mode in screens/index.html
-- [x] Update header classes for dark theme (background, text)
-- [x] Update navigation links for dark theme
-- [x] Update main section background for dark theme
-- [x] Update hero section styles for dark theme
-- [x] Update footer background and text for dark theme
-- [x] Test the toggle functionality
+- [x] Fix input field IDs in screens/register/index.html to be unique and meaningful (regNumber, firstName, middleName, lastName, department, studentEmail, photo)
+- [x] Create screens/register/register.js to handle form submission, collect input values, create student object, and add to localStorage sessions
+- [x] Add script tag for register.js in screens/register/index.html
+- [x] Test registration functionality to ensure new students are added to sessions

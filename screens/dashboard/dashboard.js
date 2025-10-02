@@ -111,8 +111,3 @@ if (startSessionBtn) {
     window.location.href = './index.html';
   });
 }
-
-
-const numbers = [10, 20, 30, 40];
-const index = numbers.findIndex(num => num > 25);
-console.log(index); 
